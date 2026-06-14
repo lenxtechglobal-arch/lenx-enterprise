@@ -18,7 +18,7 @@ export default function GlobalSupplyChainAccessPage() {
         badge="Global Network"
         title="Global Supply Chain Access"
         description="Connecting your business to worldwide inventory, manufacturers and procurement opportunities. Lenx Tech Enterprise helps organizations access electronic components through a global sourcing and supply chain ecosystem."
-        image="/services/global-supply-chain-access/hero.jpg"
+        image="/services/global-supply-chain-access/hero.png"
       />
 
       {/* Features */}
@@ -30,29 +30,21 @@ export default function GlobalSupplyChainAccessPage() {
             title: "Worldwide Supplier Network",
             description:
               "Access trusted suppliers and distributors across major global markets.",
-            image:
-              "/services/global-supply-chain-access/global-network.jpg",
           },
           {
             title: "Inventory Visibility",
             description:
               "Broader visibility into component availability and inventory opportunities.",
-            image:
-              "/services/global-supply-chain-access/inventory-visibility.jpg",
           },
           {
             title: "Procurement Support",
             description:
               "Strategic sourcing assistance to help secure components efficiently.",
-            image:
-              "/services/global-supply-chain-access/procurement-support.jpg",
           },
           {
             title: "Logistics Coordination",
             description:
               "Coordinated supply chain and logistics support for global deliveries.",
-            image:
-              "/services/global-supply-chain-access/logistics.jpg",
           },
         ]}
       />
