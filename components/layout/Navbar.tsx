@@ -128,6 +128,78 @@ export default function Navbar() {
                     className="rotate-[-90deg] text-[#0066FF] opacity-0 transition group-hover/item:opacity-100"
                   />
                 </Link>
+                <Link
+                  href="/applications/telecommunications"
+                  className="group/item flex items-center justify-between rounded-2xl px-4 py-4 transition-all hover:bg-[#EEF5FF]"
+                >
+                  <div>
+                    <h4 className="font-semibold text-[#071B4D]">
+                      Tele Communications
+                    </h4>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Best in market for Telecommunications.
+                    </p>
+                  </div>
+
+                  <ChevronDown
+                    size={16}
+                    className="rotate-[-90deg] text-[#0066FF] opacity-0 transition group-hover/item:opacity-100"
+                  />
+                </Link>
+                <Link
+                  href="/applications/defense-aerospace-naval"
+                  className="group/item flex items-center justify-between rounded-2xl px-4 py-4 transition-all hover:bg-[#EEF5FF]"
+                >
+                  <div>
+                    <h4 className="font-semibold text-[#071B4D]">
+                      Defense,AeroSpace and Navy
+                    </h4>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Quality Components for Defense systems.
+                    </p>
+                  </div>
+
+                  <ChevronDown
+                    size={16}
+                    className="rotate-[-90deg] text-[#0066FF] opacity-0 transition group-hover/item:opacity-100"
+                  />
+                </Link>
+                <Link
+                  href="/applications/data-centers"
+                  className="group/item flex items-center justify-between rounded-2xl px-4 py-4 transition-all hover:bg-[#EEF5FF]"
+                >
+                  <div>
+                    <h4 className="font-semibold text-[#071B4D]">
+                      Data Centers
+                    </h4>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Reliable products for data-centers
+                    </p>
+                  </div>
+
+                  <ChevronDown
+                    size={16}
+                    className="rotate-[-90deg] text-[#0066FF] opacity-0 transition group-hover/item:opacity-100"
+                  />
+                </Link>
+                <Link
+                  href="/applications/ev-infrastructure"
+                  className="group/item flex items-center justify-between rounded-2xl px-4 py-4 transition-all hover:bg-[#EEF5FF]"
+                >
+                  <div>
+                    <h4 className="font-semibold text-[#071B4D]">
+                      Ev Infrastructure
+                    </h4>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Reliable solutions for Ev infrastructure.
+                    </p>
+                  </div>
+
+                  <ChevronDown
+                    size={16}
+                    className="rotate-[-90deg] text-[#0066FF] opacity-0 transition group-hover/item:opacity-100"
+                  />
+                </Link>
               </div>
             </div>
 
@@ -139,28 +211,28 @@ export default function Navbar() {
               PCB
             </Link>
 
-            {/* Prototype Validation */}
+            {/* Services */}
             <div className="group relative">
               <button className="flex items-center gap-1 font-medium text-slate-700 transition hover:text-[#0066FF]">
-                Prototype Validation
+                Services
                 <ChevronDown size={16} />
               </button>
 
               <div className="invisible absolute left-0 top-full z-50 mt-4 w-80 rounded-2xl border border-slate-200 bg-white p-3 text-slate-700 opacity-0 shadow-xl transition-all group-hover:visible group-hover:opacity-100">
 
-                <Link href="/prototype-validation/hard-to-find-sourcing" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
+                <Link href="/services/hard-to-find-sourcing" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
                   Hard-to-Find Sourcing
                 </Link>
 
-                <Link href="/prototype-validation/risk-control-quality-assurance" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
+                <Link href="/services/risk-control-quality-assurance" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
                   Risk Control & Quality Assurance
                 </Link>
 
-                <Link href="/prototype-validation/global-supply-chain-access" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
+                <Link href="/services/global-supply-chain-access" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
                   Global Supply Chain Access
                 </Link>
 
-                <Link href="/prototype-validation/engineered-alternatives" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
+                <Link href="/services/engineered-alternatives" className="block rounded-xl px-4 py-3 hover:bg-slate-50">
                   Engineered Alternatives
                 </Link>
               </div>
@@ -236,24 +308,38 @@ export default function Navbar() {
               <Link href="/applications/automotive-electronics">
                 Automotive Electronics
               </Link>
+              <Link href="/applications/telecommunications">
+                Tele Communications
+              </Link>
+
+              <Link href="/applications/defense-aerospace-naval">
+                Defense, AeroSpace & Navy
+              </Link>
+              <Link href="/applications/data-centers">
+                Data Centers
+              </Link>
+
+              <Link href="/applications/automotive-electronics">
+                EV Infrastructure
+              </Link>
 
               <Link href="/pcb">
                 PCB
               </Link>
 
-              <Link href="/prototype-validation/hard-to-find-sourcing">
+              <Link href="/services/hard-to-find-sourcing">
                 Hard-to-Find Sourcing
               </Link>
 
-              <Link href="/prototype-validation/risk-control-quality-assurance">
+              <Link href="/services/risk-control-quality-assurance">
                 Risk Control & Quality Assurance
               </Link>
 
-              <Link href="/prototype-validation/global-supply-chain-access">
+              <Link href="/services/global-supply-chain-access">
                 Global Supply Chain Access
               </Link>
 
-              <Link href="/prototype-validation/engineered-alternatives">
+              <Link href="/services/engineered-alternatives">
                 Engineered Alternatives
               </Link>
 

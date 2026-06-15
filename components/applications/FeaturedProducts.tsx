@@ -54,7 +54,7 @@ export default function FeaturedProducts({
             <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent" />
 
             {/* Right Fade */}
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent" />
 
             <div className="marquee flex w-max gap-6">
 
@@ -63,7 +63,8 @@ export default function FeaturedProducts({
                   key={`${product.partNumber}-${index}`}
                   className="
             group
-            min-w-[360px]
+            w-24
+            min-w-[250px]
             overflow-hidden
             rounded-3xl
             border

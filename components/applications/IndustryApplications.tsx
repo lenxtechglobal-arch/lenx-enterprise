@@ -3,7 +3,6 @@ import Container from "@/components/shared/Container";
 interface ApplicationItem {
   title: string;
   description: string;
-  image: string;
 }
 
 interface IndustryApplicationsProps {

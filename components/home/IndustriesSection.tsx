@@ -3,10 +3,75 @@ import Container from "@/components/shared/Container";
 import {
   HeartPulse,
   Car,
+  Radio,
+  Shield,
+  BatteryCharging,
+  Database,
   ArrowRight,
 } from "lucide-react";
 
 export default function IndustriesSection() {
+  const industries = [
+    {
+      title: "Medical & Healthcare",
+      href: "/applications/medical-healthcare",
+      icon: HeartPulse,
+      iconBg: "bg-blue-50",
+      iconColor: "text-[#0066FF]",
+      description:
+        "Reliable components for diagnostic equipment, patient monitoring systems, medical imaging and healthcare electronics.",
+    },
+
+    {
+      title: "Automotive Electronics",
+      href: "/applications/automotive-electronics",
+      icon: Car,
+      iconBg: "bg-orange-50",
+      iconColor: "text-[#FF6B00]",
+      description:
+        "Advanced semiconductor solutions for ADAS, EV platforms, infotainment and vehicle control systems.",
+    },
+
+    {
+      title: "Telecommunications",
+      href: "/applications/telecommunications",
+      icon: Radio,
+      iconBg: "bg-purple-50",
+      iconColor: "text-purple-600",
+      description:
+        "RF, networking and communication solutions for telecom infrastructure, fiber networks and wireless systems.",
+    },
+
+    {
+      title: "Defense, Aerospace & Naval",
+      href: "/applications/defense-aerospace-naval",
+      icon: Shield,
+      iconBg: "bg-red-50",
+      iconColor: "text-red-600",
+      description:
+        "MIL-grade components, RF systems, embedded processors and ruggedized connectivity solutions.",
+    },
+
+    {
+      title: "EV Infrastructure",
+      href: "/applications/ev-infrastructure",
+      icon: BatteryCharging,
+      iconBg: "bg-green-50",
+      iconColor: "text-green-600",
+      description:
+        "Power electronics, battery management and charging solutions for electric mobility infrastructure.",
+    },
+
+    {
+      title: "Data Centers",
+      href: "/applications/data-centers",
+      icon: Database,
+      iconBg: "bg-cyan-50",
+      iconColor: "text-cyan-600",
+      description:
+        "High-performance networking, power management and connectivity solutions for cloud and data center infrastructure.",
+    },
+  ];
   return (
     <section className="bg-slate-50 py-24">
       <Container>
@@ -29,98 +94,57 @@ export default function IndustriesSection() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
-          {/* Medical */}
+        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {industries.map((industry) => {
+            const Icon = industry.icon;
 
-          <Link
-            href="/applications/medical-healthcare"
-            className="
-              group
-              rounded-[32px]
-              border
-              border-slate-200
-              bg-white
-              p-10
-              shadow-sm
-              transition-all
-              duration-300
-              hover:-translate-y-2
-              hover:border-[#0066FF]
-              hover:shadow-xl
-            "
-          >
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
-              <HeartPulse
-                size={32}
-                className="text-[#0066FF]"
-              />
-            </div>
+            return (
+              <Link
+                key={industry.title}
+                href={industry.href}
+                className="
+          group
+          rounded-[32px]
+          border
+          border-slate-200
+          bg-white
+          p-10
+          shadow-sm
+          transition-all
+          duration-300
+          hover:-translate-y-2
+          hover:border-[#0066FF]
+          hover:shadow-xl
+        "
+              >
+                <div
+                  className={`flex h-16 w-16 items-center justify-center rounded-2xl ${industry.iconBg}`}
+                >
+                  <Icon
+                    size={32}
+                    className={industry.iconColor}
+                  />
+                </div>
 
-            <h3 className="mt-8 text-3xl font-bold text-[#071B4D]">
-              Medical & Healthcare
-            </h3>
+                <h3 className="mt-8 text-2xl font-bold text-[#071B4D]">
+                  {industry.title}
+                </h3>
 
-            <p className="mt-4 text-slate-600">
-              Reliable components for diagnostic equipment,
-              patient monitoring systems, imaging devices,
-              wearable healthcare solutions and medical-grade
-              electronics.
-            </p>
+                <p className="mt-4 text-slate-600">
+                  {industry.description}
+                </p>
 
-            <div className="mt-8 flex items-center gap-2 font-semibold text-[#0066FF]">
-              Explore Industry
-              <ArrowRight
-                size={18}
-                className="transition group-hover:translate-x-1"
-              />
-            </div>
-          </Link>
+                <div className="mt-8 flex items-center gap-2 font-semibold text-[#0066FF]">
+                  Explore Industry
 
-          {/* Automotive */}
-
-          <Link
-            href="/applications/automotive-electronics"
-            className="
-              group
-              rounded-[32px]
-              border
-              border-slate-200
-              bg-white
-              p-10
-              shadow-sm
-              transition-all
-              duration-300
-              hover:-translate-y-2
-              hover:border-[#0066FF]
-              hover:shadow-xl
-            "
-          >
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-50">
-              <Car
-                size={32}
-                className="text-[#FF6B00]"
-              />
-            </div>
-
-            <h3 className="mt-8 text-3xl font-bold text-[#071B4D]">
-              Automotive Electronics
-            </h3>
-
-            <p className="mt-4 text-slate-600">
-              High-performance semiconductor and embedded
-              solutions for ADAS systems, EV platforms,
-              infotainment, telematics and vehicle control
-              applications.
-            </p>
-
-            <div className="mt-8 flex items-center gap-2 font-semibold text-[#0066FF]">
-              Explore Industry
-              <ArrowRight
-                size={18}
-                className="transition group-hover:translate-x-1"
-              />
-            </div>
-          </Link>
+                  <ArrowRight
+                    size={18}
+                    className="transition group-hover:translate-x-1"
+                  />
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </Container>
     </section>

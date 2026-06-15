@@ -48,43 +48,31 @@ export default function MedicalHealthcarePage() {
             title: "Patient Monitoring Systems",
             description:
               "Reliable components for monitoring critical patient health data.",
-            image:
-              "/applications/medical-healthcare/patient-monitoring.jpg",
           },
           {
             title: "Diagnostic Equipment",
             description:
               "Precision electronics supporting advanced diagnostics.",
-            image:
-              "/applications/medical-healthcare/diagnostics.jpg",
           },
           {
             title: "Medical Imaging",
             description:
               "Components for MRI, CT and imaging platforms.",
-            image:
-              "/applications/medical-healthcare/imaging.jpg",
           },
           {
             title: "Laboratory Automation",
             description:
               "Electronic solutions for automated laboratory systems.",
-            image:
-              "/applications/medical-healthcare/laboratory.jpg",
           },
           {
             title: "Wearable Healthcare Devices",
             description:
               "Low-power components for connected healthcare devices.",
-            image:
-              "/applications/medical-healthcare/wearables.jpg",
           },
           {
             title: "Portable Medical Equipment",
             description:
               "Compact power and sensing solutions for portable devices.",
-            image:
-              "/applications/medical-healthcare/portable-devices.jpg",
           },
         ]}
       />
