@@ -48,43 +48,31 @@ export default function AutomotiveElectronicsPage() {
             title: "Electric Vehicles",
             description:
               "Power electronics and semiconductors for EV platforms.",
-            image:
-              "/applications/automotive-electronics/electric-vehicles.jpg",
           },
           {
             title: "ADAS Systems",
             description:
               "Advanced driver assistance and autonomous technologies.",
-            image:
-              "/applications/automotive-electronics/adas.jpg",
           },
           {
             title: "Battery Management",
             description:
               "Efficient battery monitoring and management solutions.",
-            image:
-              "/applications/automotive-electronics/battery-management.jpg",
           },
           {
             title: "Vehicle Connectivity",
             description:
               "Connected car and communication technologies.",
-            image:
-              "/applications/automotive-electronics/connectivity.jpg",
           },
           {
             title: "Infotainment Systems",
             description:
               "Processors and memory solutions for vehicle infotainment.",
-            image:
-              "/applications/automotive-electronics/infotainment.jpg",
           },
           {
             title: "Body Electronics",
             description:
               "Electronic control systems for safety and convenience.",
-            image:
-              "/applications/automotive-electronics/body-electronics.jpg",
           },
         ]}
       />
