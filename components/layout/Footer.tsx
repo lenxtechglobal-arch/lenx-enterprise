@@ -152,7 +152,7 @@ export default function Footer() {
                                     Email
                                 </span>
 
-                                info@lenxtech.com
+                                info@lenxtechenterprise.com
                             </li>
 
                             <li>

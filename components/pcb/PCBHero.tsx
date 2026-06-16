@@ -132,7 +132,7 @@ export default function PCBHero() {
                 "
               >
                 <img
-                  src="/pcb/pcb-hero.jpg"
+                  src="/pcb/pcb-hero.webp"
                   alt="PCB Manufacturing"
                   className="rounded-3xl"
                 />

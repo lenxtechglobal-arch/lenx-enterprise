@@ -7,7 +7,48 @@ import Container from "@/components/shared/Container";
 export default function PCBQuoteForm() {
   const [assembly, setAssembly] = useState("yes");
   const [sourcing, setSourcing] = useState("yes");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
 
+    setLoading(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      const formData = new FormData(e.currentTarget);
+
+      const response = await fetch("/api/pcb-quote", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      setSuccess(
+        "Thank you. Your PCB quote request has been submitted successfully. Our team will contact you shortly."
+      );
+
+      e.currentTarget.reset();
+
+      setAssembly("yes");
+      setSourcing("yes");
+    } catch (err) {
+      setError(
+        "Failed to submit PCB quote request. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <section
       id="pcb-quote"
@@ -44,7 +85,11 @@ export default function PCBQuoteForm() {
             lg:p-12
           "
         >
-          <form className="space-y-12">
+          <form
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            className="space-y-12"
+          >
             {/* Contact Info */}
             <div>
               <h3 className="mb-6 text-2xl font-bold text-[#071B4D]">
@@ -53,24 +98,31 @@ export default function PCBQuoteForm() {
 
               <div className="grid gap-6 md:grid-cols-2">
                 <input
+                  name="fullName"
                   type="text"
+                  required
                   placeholder="Full Name *"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
                 />
 
                 <input
+                  name="company"
                   type="text"
+                  required
                   placeholder="Company Name *"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
                 />
 
                 <input
+                  name="email"
                   type="email"
+                  required
                   placeholder="Email Address *"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
                 />
 
                 <input
+                  name="phone"
                   type="tel"
                   placeholder="Phone Number"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
@@ -85,26 +137,34 @@ export default function PCBQuoteForm() {
               </h3>
 
               <div className="grid gap-6 md:grid-cols-2">
-                <select className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]">
-                  <option>PCB Type</option>
+                <select
+                  name="pcbType"
+                  required
+                  className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
+                >
+                  <option value="">PCB Type</option>
                   <option>Single Layer PCB</option>
                   <option>Double Layer PCB</option>
                   <option>Multi Layer PCB</option>
                 </select>
 
                 <input
+                  name="quantity"
                   type="number"
+                  required
                   placeholder="Quantity"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
                 />
 
                 <input
+                  name="boardSize"
                   type="text"
                   placeholder="Board Size (mm)"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
                 />
 
                 <input
+                  name="layers"
                   type="number"
                   placeholder="Number of Layers"
                   className="h-14 rounded-xl border border-slate-300 px-5 outline-none focus:border-[#0066FF]"
@@ -128,11 +188,10 @@ export default function PCBQuoteForm() {
                     <button
                       type="button"
                       onClick={() => setAssembly("yes")}
-                      className={`rounded-xl px-6 py-3 font-medium transition ${
-                        assembly === "yes"
-                          ? "bg-[#0066FF] text-white"
-                          : "border border-slate-300"
-                      }`}
+                      className={`rounded-xl px-6 py-3 font-medium transition ${assembly === "yes"
+                        ? "bg-[#0066FF] text-white"
+                        : "border border-slate-300"
+                        }`}
                     >
                       Yes
                     </button>
@@ -140,11 +199,10 @@ export default function PCBQuoteForm() {
                     <button
                       type="button"
                       onClick={() => setAssembly("no")}
-                      className={`rounded-xl px-6 py-3 font-medium transition ${
-                        assembly === "no"
-                          ? "bg-[#0066FF] text-white"
-                          : "border border-slate-300"
-                      }`}
+                      className={`rounded-xl px-6 py-3 font-medium transition ${assembly === "no"
+                        ? "bg-[#0066FF] text-white"
+                        : "border border-slate-300"
+                        }`}
                     >
                       No
                     </button>
@@ -160,11 +218,10 @@ export default function PCBQuoteForm() {
                     <button
                       type="button"
                       onClick={() => setSourcing("yes")}
-                      className={`rounded-xl px-6 py-3 font-medium transition ${
-                        sourcing === "yes"
-                          ? "bg-[#0066FF] text-white"
-                          : "border border-slate-300"
-                      }`}
+                      className={`rounded-xl px-6 py-3 font-medium transition ${sourcing === "yes"
+                        ? "bg-[#0066FF] text-white"
+                        : "border border-slate-300"
+                        }`}
                     >
                       Yes
                     </button>
@@ -172,11 +229,10 @@ export default function PCBQuoteForm() {
                     <button
                       type="button"
                       onClick={() => setSourcing("no")}
-                      className={`rounded-xl px-6 py-3 font-medium transition ${
-                        sourcing === "no"
-                          ? "bg-[#0066FF] text-white"
-                          : "border border-slate-300"
-                      }`}
+                      className={`rounded-xl px-6 py-3 font-medium transition ${sourcing === "no"
+                        ? "bg-[#0066FF] text-white"
+                        : "border border-slate-300"
+                        }`}
                     >
                       No
                     </button>
@@ -193,12 +249,16 @@ export default function PCBQuoteForm() {
 
               <div className="grid gap-6 md:grid-cols-2">
                 <input
+                  name="gerberFile"
                   type="file"
+                  accept=".zip,.rar,.7z,.gbr,.gerber"
                   className="rounded-xl border border-slate-300 p-4"
                 />
 
                 <input
+                  name="bomFile"
                   type="file"
+                  accept=".pdf,.xlsx,.xls,.csv,.zip"
                   className="rounded-xl border border-slate-300 p-4"
                 />
               </div>
@@ -215,29 +275,64 @@ export default function PCBQuoteForm() {
               </h3>
 
               <textarea
+                name="requirements"
                 rows={6}
                 placeholder="Describe your PCB project requirements..."
                 className="w-full rounded-2xl border border-slate-300 p-5 outline-none focus:border-[#0066FF]"
               />
             </div>
+            {success && (
+              <div
+                className="
+      rounded-xl
+      border
+      border-green-200
+      bg-green-50
+      p-4
+      text-green-700
+    "
+              >
+                {success}
+              </div>
+            )}
+
+            {error && (
+              <div
+                className="
+      rounded-xl
+      border
+      border-red-200
+      bg-red-50
+      p-4
+      text-red-700
+    "
+              >
+                {error}
+              </div>
+            )}
 
             {/* Submit */}
             <div className="text-center">
               <button
                 type="submit"
+                disabled={loading}
                 className="
-                  rounded-xl
-                  bg-[#0066FF]
-                  px-10
-                  py-4
-                  text-lg
-                  font-semibold
-                  text-white
-                  transition
-                  hover:bg-[#0052cc]
-                "
+    rounded-xl
+    bg-[#0066FF]
+    px-10
+    py-4
+    text-lg
+    font-semibold
+    text-white
+    transition
+    hover:bg-[#0052cc]
+    disabled:cursor-not-allowed
+    disabled:opacity-70
+  "
               >
-                Request PCB Quote
+                {loading
+                  ? "Submitting..."
+                  : "Request PCB Quote"}
               </button>
             </div>
           </form>

@@ -49,7 +49,7 @@ export default function ContactInfo() {
             </h4>
 
             <p className="mt-1 text-slate-600">
-              info@lenxtech.com
+              info@lenxtechenterprise.com
             </p>
           </div>
         </div>

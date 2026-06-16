@@ -1,10 +1,51 @@
 "use client";
 
+
+import { useState } from "react";
 import { Upload } from "lucide-react";
 
 export default function ContactForm() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      const formData = new FormData(e.currentTarget);
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      setSuccess(
+        "Thank you. Your RFQ has been submitted successfully."
+      );
+
+      e.currentTarget.reset();
+    } catch (err) {
+      setError(
+        "Failed to submit enquiry. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <div className="rounded-3xl border border-slate-200 p-8 shadow-sm">
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-[#071B4D]">
           Request a Quote
@@ -17,6 +58,7 @@ export default function ContactForm() {
       </div>
 
       <form
+        onSubmit={handleSubmit}
         className="space-y-6"
         encType="multipart/form-data"
       >
@@ -29,6 +71,7 @@ export default function ContactForm() {
             </label>
 
             <input
+              name="name"
               type="text"
               required
               className="
@@ -51,6 +94,7 @@ export default function ContactForm() {
             </label>
 
             <input
+              name="company"
               type="text"
               className="
                 h-12
@@ -74,6 +118,7 @@ export default function ContactForm() {
             </label>
 
             <input
+              name="email"
               type="email"
               required
               className="
@@ -96,6 +141,7 @@ export default function ContactForm() {
             </label>
 
             <input
+              name="phone"
               type="tel"
               required
               className="
@@ -121,6 +167,7 @@ export default function ContactForm() {
           </label>
 
           <select
+            name="enquiryType"
             required
             className="
               h-12
@@ -173,6 +220,7 @@ export default function ContactForm() {
             </label>
 
             <input
+              name="partNumber"
               type="text"
               placeholder="e.g. TPS650352-Q1"
               className="
@@ -195,6 +243,7 @@ export default function ContactForm() {
             </label>
 
             <input
+              name="manufacturer"
               type="text"
               placeholder="e.g. Texas Instruments"
               className="
@@ -218,6 +267,7 @@ export default function ContactForm() {
           </label>
 
           <input
+            name="quantity"
             type="number"
             min="1"
             placeholder="Enter quantity"
@@ -243,6 +293,7 @@ export default function ContactForm() {
           </label>
 
           <textarea
+            name="message"
             required
             rows={6}
             placeholder="Tell us about your requirements..."
@@ -297,6 +348,7 @@ export default function ContactForm() {
             </p>
 
             <input
+              name="file"
               type="file"
               className="hidden"
               accept="
@@ -311,23 +363,57 @@ export default function ContactForm() {
         </div>
 
         {/* Submit */}
+        {success && (
+          <div
+            className="
+      rounded-xl
+      border
+      border-green-200
+      bg-green-50
+      p-4
+      text-green-700
+    "
+          >
+            {success}
+          </div>
+        )}
+
+        {error && (
+          <div
+            className="
+      rounded-xl
+      border
+      border-red-200
+      bg-red-50
+      p-4
+      text-red-700
+    "
+          >
+            {error}
+          </div>
+        )}
 
         <button
           type="submit"
+          disabled={loading}
           className="
-            w-full
-            rounded-xl
-            bg-[#0066FF]
-            px-6
-            py-4
-            text-base
-            font-semibold
-            text-white
-            transition
-            hover:bg-[#0052CC]
-          "
+    w-full
+    rounded-xl
+    bg-[#0066FF]
+    px-6
+    py-4
+    text-base
+    font-semibold
+    text-white
+    transition
+    hover:bg-[#0052CC]
+    disabled:cursor-not-allowed
+    disabled:opacity-70
+  "
         >
-          Submit RFQ
+          {loading
+            ? "Submitting..."
+            : "Submit RFQ"}
         </button>
       </form>
     </div>
