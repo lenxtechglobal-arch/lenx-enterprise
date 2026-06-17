@@ -319,7 +319,7 @@ export default function Navbar() {
                 Data Centers
               </Link>
 
-              <Link href="/applications/automotive-electronics">
+              <Link href="/applications/ev-infrastructure">
                 EV Infrastructure
               </Link>
 

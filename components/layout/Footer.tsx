@@ -104,6 +104,27 @@ export default function Footer() {
                                     Automotive Electronics
                                 </Link>
                             </li>
+                             <li>
+                                <Link href="/applications/telecommunications">
+                                    Tele Communications
+                                </Link>
+                            </li>
+                             <li>
+                                <Link href="/applications/defense-aerospace-normal">
+                                    Defense,Aerospace and Naval
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/applications/data-centers">
+                                    Data Centers
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/applications/ev-infrastructure">
+                                    EV infrastructure
+                                </Link>
+                            </li>
+
                         </ul>
                     </div>
 
@@ -115,25 +136,25 @@ export default function Footer() {
 
                         <ul className="space-y-3 text-slate-300">
                             <li>
-                                <Link href="/prototype-validation/hard-to-find-sourcing">
+                                <Link href="/services/hard-to-find-sourcing">
                                     Hard-to-Find Sourcing
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/prototype-validation/risk-control-quality-assurance">
+                                <Link href="/services/risk-control-quality-assurance">
                                     Quality Assurance
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/prototype-validation/global-supply-chain-access">
+                                <Link href="/services/global-supply-chain-access">
                                     Global Supply Chain
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/prototype-validation/engineered-alternatives">
+                                <Link href="/services/engineered-alternatives">
                                     Engineered Alternatives
                                 </Link>
                             </li>
